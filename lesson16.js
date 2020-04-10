@@ -1,5 +1,5 @@
 /*Invoke the anonymous function that is a parameter of nameFilter function
-Now pass in i as an argument of that function so we track each time the 
+Now pass in   as an argument of that function so we track each time the 
 anonyomous function is invoked
 
 Expected  output in console:
@@ -17,18 +17,19 @@ var people = [
 
 var nameFilter = function(filteredName, anonymousFunction) {
     var results = []
+     
     for (var i = 0; i < people.length; i++) {
+        anonymousFunction(i)
         let currentName = people[i].name
         if (currentName != filteredName) {
             results.push(currentName)
-
         }
     }
 
     return results
 }
 
-var filteredNames = nameFilter("Betty", function(name) {
-    console.log("This Ran")
+var filteredNames = nameFilter("Betty", function(x) {
+    console.log("This Ran", x)
 })
 console.log(filteredNames)
